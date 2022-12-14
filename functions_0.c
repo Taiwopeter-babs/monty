@@ -113,8 +113,8 @@ void _pop(stack_t **stack, __attribute__((unused)) unsigned int line_number)
  */
 void _swap(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
-	int count;/*, data;*/
-	stack_t *temp, *f_node, *s_node; /*node*/
+	int count;
+	stack_t *temp, *f_node, *s_node;
 
 	if (!stack || !(*stack))
 	{
