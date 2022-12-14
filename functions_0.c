@@ -75,4 +75,36 @@ void _pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	dprintf(STDOUT_FILENO, "%d\n", temp->n);
 }
+/**
+ * _pop - deletes/removes the node at the top of the stack
+ * @stack: pointer to head of stack
+ * @line_number: reference to line number of command and data
+ * Return: nothing
+ */
+void _pop(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *temp;
 
+	if (!(*stack) || !stack)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n",
+				line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	else if (*stack)
+	{
+		temp = *stack;
+
+		if ((*stack)->next)
+		{
+			*stack = (*stack)->next;
+			(*stack)->prev = NULL;
+		}
+		else
+		{
+			*stack = NULL;
+		}
+		free(temp);
+	}
+}
