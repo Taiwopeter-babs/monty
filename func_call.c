@@ -14,6 +14,7 @@ void func_call(char **tokens, stack_t **stack)
 			{"push", _push},
 			{"pint", _pint},
 			{"pop", _pop},
+			{"swap", _swap},
 			{NULL, NULL}
 		};
 	int idx;

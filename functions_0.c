@@ -91,20 +91,66 @@ void _pop(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 				line_number);
 		exit(EXIT_FAILURE);
 	}
-
 	else if (*stack)
 	{
 		temp = *stack;
-
 		if ((*stack)->next)
 		{
 			*stack = (*stack)->next;
 			(*stack)->prev = NULL;
 		}
 		else
-		{
 			*stack = NULL;
-		}
+
 		free(temp);
+	}
+}
+/**
+ * _swap - swaps the first and second nodes on the stack
+ * @stack: pointer to head of stack
+ * @line_number: unused parameter
+ * Return: nothing
+ */
+void _swap(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	int count;/*, data;*/
+	stack_t *temp, *f_node, *s_node; /*node*/
+
+	if (!stack || !(*stack))
+	{
+		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n",
+				line_number);
+		if (*stack)
+			free_stack_list(stack);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	for (count = 0; temp; count++)
+		temp = temp->next;
+
+	if (count < 2)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n",
+				line_number);
+		exit(EXIT_FAILURE);
+	}
+	f_node = *stack;
+	s_node = (*stack)->next;
+	if (count > 2)
+	{
+		f_node->next = s_node->next;
+		s_node->next->prev = f_node;
+		s_node->next = f_node;
+		f_node->prev = s_node;
+		s_node->prev = NULL;
+		*stack = s_node;
+	}
+	if (count == 2)
+	{
+		f_node->next = NULL;
+		s_node->next = f_node;
+		f_node->prev = s_node;
+		s_node->prev = NULL;
+		*stack = s_node;
 	}
 }
