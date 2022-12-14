@@ -12,6 +12,7 @@ void func_call(char **tokens, stack_t **stack)
 	instruction_t func[] = {
 			{"pall", _pall},
 			{"push", _push},
+			{"pint", _pint},
 			{NULL, NULL}
 		};
 	int idx;

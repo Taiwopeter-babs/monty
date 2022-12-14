@@ -55,4 +55,24 @@ void _pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 		temp = temp->next;
 	}
 }
+/**
+ * _pint - prints to stdout the data at th top of the stack
+ * @stack: pointer to head of the stack
+ * @line_number: reference to line number of command and data
+ * Return: nothing
+ */
+void _pint(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (!(*stack) || !stack)
+	{
+		dprintf(STDERR_FILENO, "L%u: can't pint, stack empty\n",
+				line_number);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+
+	dprintf(STDOUT_FILENO, "%d\n", temp->n);
+}
 
