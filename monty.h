@@ -56,4 +56,5 @@ void func_call(char **tokens, stack_t **stack);
 void _pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void _push(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void _pint(stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void _pop(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 #endif /* MONTY_H */
