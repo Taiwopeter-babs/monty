@@ -8,7 +8,7 @@
 ```c
 ./monty <file>
 ```
-<file> is the path to file containing the monty bytecode
+``file`` is the path to file containing the monty bytecode
 
 
 
