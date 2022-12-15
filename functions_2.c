@@ -27,3 +27,30 @@ void _pchar(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	}
 	dprintf(STDOUT_FILENO, "%c\n", temp->n);
 }
+/**
+ * _pstr - prints the data on the top of the stack as ascii
+ * @stack: pointer to head/top of linked list/stack
+ * @line_number: see _push for reference (unused argument)
+ * Return: nothing
+ */
+void _pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (!stack || !(*stack))
+	{
+		dprintf(STDOUT_FILENO, "\n");
+	}
+	temp = *stack;
+
+	while (temp)
+	{
+		if (temp->n == 0 || temp->n < 0 || temp->n > 127)
+		{
+			break;
+		}
+		dprintf(STDOUT_FILENO, "%c", temp->n);
+		temp = temp->next;
+	}
+	dprintf(STDOUT_FILENO, "\n");
+}
