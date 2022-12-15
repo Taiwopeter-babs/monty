@@ -24,6 +24,7 @@ taiwo@Taiwo-avangarde:~/monty$ ./monty bytecode_1.m
 3
 2
 1
+taiwo@Taiwo-avangarde:~/monty$
 ```
 The above is a simple demonstration of how the program works.
 
