@@ -14,7 +14,7 @@ void _add(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	if (!stack || !(*stack))
 	{
-		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n",
+		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n",
 				line_number);
 		if (*stack)
 			free_stack_list(stack);
@@ -26,7 +26,7 @@ void _add(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	if (count < 2)
 	{
-		dprintf(STDERR_FILENO, "L%u: can't swap, stack too short\n",
+		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n",
 				line_number);
 		exit(EXIT_FAILURE);
 	}
