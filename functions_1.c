@@ -16,8 +16,6 @@ void _add(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n",
 				line_number);
-		if (*stack)
-			free_stack_list(stack);
 		exit(EXIT_FAILURE);
 	}
 	temp = *stack;
@@ -28,6 +26,8 @@ void _add(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't add, stack too short\n",
 				line_number);
+		if (*stack)
+			free_stack_list(stack);
 		exit(EXIT_FAILURE);
 	}
 	f_node = *stack;
