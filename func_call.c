@@ -33,7 +33,8 @@ void func_call(char **tokens, stack_t **stack)
 				break;
 
 			}
-			func[idx].f(stack, line_number);
+			if (func[idx].f)
+				func[idx].f(stack, line_number);
 			break;
 		}
 
