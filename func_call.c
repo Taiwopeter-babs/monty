@@ -15,6 +15,8 @@ void func_call(char **tokens, stack_t **stack)
 			{"mul", _mul}, {"mod", _mod}, {NULL, NULL}};
 	int idx;
 
+	if (tokens[0][0] == '#')
+		return;
 	for (idx = 0; func[idx].opcode != NULL; idx++)
 	{
 		if (strcmp(tokens[0], func[idx].opcode) == 0)
