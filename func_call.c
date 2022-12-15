@@ -15,6 +15,8 @@ void func_call(char **tokens, stack_t **stack)
 			{"pint", _pint},
 			{"pop", _pop},
 			{"swap", _swap},
+			{"nop", NULL},
+			{"add", _add},
 			{NULL, NULL}
 		};
 	int idx;
@@ -34,13 +36,14 @@ void func_call(char **tokens, stack_t **stack)
 			func[idx].f(stack, line_number);
 			break;
 		}
-	}
-	if (func[idx].opcode == NULL)
-	{
-		dprintf(STDERR_FILENO,
-				"L%u: unknown instruction %s\n",
-				line_number, tokens[0]);
-		exit(EXIT_FAILURE);
+
+		if (func[idx].opcode == NULL)
+		{
+			dprintf(STDERR_FILENO,
+					"L%u: unknown instruction %s\n",
+					line_number, tokens[0]);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 /**
