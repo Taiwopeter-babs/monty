@@ -72,22 +72,23 @@ void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	temp = *stack;
 	curr = *stack;
 	new_last = *stack;
-	new_head = (*stack)->next;
+	if ((*stack)->next)
+		new_head = (*stack)->next; /* set to second node on stack */
 
 	while (temp)
 	{
-		count++;
+		count++; /* count the nodes on the stack */
 		temp = temp->next;
 	}
-	if (count == 1)
+	if (count == 1) /* single-node stack cannot be rotated */
 		return;
-	while (curr->next)
+	while (curr->next) /* move this to end of list/stack */
 		curr = curr->next;
-	curr->next = new_last;
-	new_last->next = NULL;
-	new_last->prev = curr;
-	new_head->prev = NULL;
-	*stack = new_head;
+	curr->next = new_last; /* set last-node next to top of stack */
+	new_last->next = NULL; /* set top-node next to NULL */
+	new_last->prev = curr; /* set top-node prev to last node */
+	new_head->prev = NULL; 
+	*stack = new_head; /* last is now first */
 }
 /**
  * _rotr - rotates the stack to the right; the top node
@@ -111,7 +112,7 @@ void _rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 
 	if (count == 1)
 		return;
-	if (count == 2)
+	if (count == 2) /* for exactly two-node stack */
 	{
 		new_first = (*stack)->next;
 		new_last = *stack;
@@ -121,21 +122,21 @@ void _rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 		new_last->next = NULL;
 		*stack = new_first;
 	}
-	else
+	else /* for stacks with >2 nodes */
 	{
 		new_first = *stack;
 		new_last = *stack;
 		while (idx < count - 2)
 		{
-			new_last = new_last->next;
+			new_last = new_last->next; /* move to 2nd to last */
 			idx++;
 		}
 		while (new_first->next)
-			new_first = new_first->next;
-		new_first->next = *stack;
-		(*stack)->prev = new_first;
+			new_first = new_first->next; /* move to last node */
+		new_first->next = *stack; /* point last node to head */
+		(*stack)->prev = new_first; /* set current head prev to last */
 		new_first->prev = NULL;
 		new_last->next = NULL;
-		*stack = new_first;
+		*stack = new_first; /* last is now first */
 	}
 }
