@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * func_call - checks for appropriate function to perform;
  * checks the validity of the value
@@ -10,15 +9,9 @@
 void func_call(char **tokens, stack_t **stack)
 {
 	instruction_t func[] = {
-			{"pall", _pall},
-			{"push", _push},
-			{"pint", _pint},
-			{"pop", _pop},
-			{"swap", _swap},
-			{"nop", NULL},
-			{"add", _add},
-			{NULL, NULL}
-		};
+			{"pall", _pall}, {"push", _push}, {"pint", _pint},
+			{"pop", _pop}, {"swap", _swap}, {"nop", NULL},
+			{"add", _add}, {NULL, NULL}};
 	int idx;
 
 	for (idx = 0; func[idx].opcode != NULL; idx++)
@@ -31,13 +24,11 @@ void func_call(char **tokens, stack_t **stack)
 				check_valid_digit(tokens, stack);
 				(*stack)->n = atoi(tokens[1]);
 				break;
-
 			}
 			if (func[idx].f)
 				func[idx].f(stack, line_number);
 			break;
 		}
-
 		if (func[idx].opcode == NULL)
 		{
 			dprintf(STDERR_FILENO,
