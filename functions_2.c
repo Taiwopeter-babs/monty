@@ -89,3 +89,53 @@ void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	new_head->prev = NULL;
 	*stack = new_head;
 }
+/**
+ * _rotr - rotates the stack to the right; the top node
+ * becomes the second node, and the last node becomes top
+ * @stack: pointer to head/top of linked list/stack
+ * @line_number: see _push for reference (unused argument)
+ * Return: nothing
+ */
+void _rotr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *temp, *new_first, *new_last;
+	int count, idx = 0;
+
+	if (!stack || !(*stack))
+		return;
+
+	temp = *stack;
+
+	for (count = 0; temp; count++)
+		temp = temp->next;
+
+	if (count == 1)
+		return;
+	if (count == 2)
+	{
+		new_first = (*stack)->next;
+		new_last = *stack;
+		new_first->next = new_last;
+		new_first->prev = NULL;
+		new_last->prev = new_first;
+		new_last->next = NULL;
+		*stack = new_first;
+	}
+	else
+	{
+		new_first = *stack;
+		new_last = *stack;
+		while (idx < count - 2)
+		{
+			new_last = new_last->next;
+			idx++;
+		}
+		while (new_first->next)
+			new_first = new_first->next;
+		new_first->next = *stack;
+		(*stack)->prev = new_first;
+		new_first->prev = NULL;
+		new_last->next = NULL;
+		*stack = new_first;
+	}
+}
