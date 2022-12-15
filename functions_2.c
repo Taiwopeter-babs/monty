@@ -86,5 +86,6 @@ void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	curr->next = new_last;
 	new_last->next = NULL;
 	new_last->prev = curr;
+	new_head->prev = NULL;
 	*stack = new_head;
 }
