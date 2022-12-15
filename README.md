@@ -13,18 +13,18 @@
 
 ## Example
 ```c
-taiwo@Taiwo-avangarde:~/monty$ cat bytecode_1.m
+taiwo@Taiwo-avantgarde:~/monty$ cat bytecode_1.m
 push 1
 push 2
 push 3
 pall
-taiwo@Taiwo-avangarde:~/monty$ ./monty
+taiwo@Taiwo-avantgarde:~/monty$ ./monty
 USAGE: monty file
-taiwo@Taiwo-avangarde:~/monty$ ./monty bytecode_1.m
+taiwo@Taiwo-avantgarde:~/monty$ ./monty bytecode_1.m
 3
 2
 1
-taiwo@Taiwo-avangarde:~/monty$
+taiwo@Taiwo-avantgarde:~/monty$
 ```
 The above is a simple demonstration of how the program works.
 
