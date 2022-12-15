@@ -13,7 +13,7 @@ void func_call(char **tokens, stack_t **stack)
 			{"pop", _pop}, {"swap", _swap}, {"nop", NULL},
 			{"add", _add}, {"sub", _sub}, {"div", _div},
 			{"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
-			{"pstr", _pstr}, {NULL, NULL}};
+			{"pstr", _pstr}, {"rotl", _rotl}, {NULL, NULL}};
 	int idx;
 
 	if (tokens[0][0] == '#')
