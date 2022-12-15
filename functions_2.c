@@ -79,6 +79,8 @@ void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 		count++;
 		temp = temp->next;
 	}
+	if (count == 1)
+		return;
 	while (curr->next)
 		curr = curr->next;
 	curr->next = new_last;
