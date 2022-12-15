@@ -12,7 +12,7 @@ void func_call(char **tokens, stack_t **stack)
 			{"pall", _pall}, {"push", _push}, {"pint", _pint},
 			{"pop", _pop}, {"swap", _swap}, {"nop", NULL},
 			{"add", _add}, {"sub", _sub}, {"div", _div},
-			{NULL, NULL}};
+			{"mul", _mul}, {"mod", _mod}, {NULL, NULL}};
 	int idx;
 
 	for (idx = 0; func[idx].opcode != NULL; idx++)
