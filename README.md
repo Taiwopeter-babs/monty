@@ -1,4 +1,4 @@
-#	A Simple Implementation of an Interpreter for Monty ByteCode files
+#	A Simple Implementation of an Interpreter for Monty ByteCode files in C
 
 ## Requirements
 - Ubuntu 20.04
@@ -13,28 +13,25 @@
 
 ## Example
 ```c
-taiwo@Taiwo-avantgarde:~/monty$ cat bytecode_1.m
+taiwop@Taiwo-avantgarde:~/monty$ cat bytecode_1.m
 push 1
 push 2
 push 3
 pall
-taiwo@Taiwo-avantgarde:~/monty$ ./monty
+taiwop@Taiwo-avantgarde:~/monty$ ./monty
 USAGE: monty file
-taiwo@Taiwo-avantgarde:~/monty$ ./monty bytecode_1.m
+taiwop@Taiwo-avantgarde:~/monty$ ./monty bytecode_1.m
 3
 2
 1
-taiwo@Taiwo-avantgarde:~/monty$
+taiwop@Taiwo-avantgarde:~/monty$
 ```
 The above is a simple demonstration of how the program works.
 
 ## Tests
-This program was compiled with gcc & tested with Ubuntu 20.04. 
-see [here](https://github.com/Taiwopeter-babs/monty/tree/master/tests)
-
-## Notes
+This program was compiled with gcc & tested on Ubuntu 20.04.
+see [here](https://github.com/Taiwopeter-babs/monty/tree/master/tests) for scripts used in testing.
 Program was successfully compiled and no memory leaks were observed at runtime.
-
 
 ## Author(s)
 - Taiwo Babalola <babalolataiwop@gmail.com>
