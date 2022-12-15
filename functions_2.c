@@ -66,6 +66,9 @@ void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	stack_t *temp, *curr, *new_head, *new_last;
 	int count = 0;
 
+	if (!stack || !(*stack))
+		return;
+
 	temp = *stack;
 	curr = *stack;
 	new_last = *stack;
