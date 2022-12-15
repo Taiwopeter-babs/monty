@@ -54,3 +54,32 @@ void _pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	}
 	dprintf(STDOUT_FILENO, "\n");
 }
+/**
+ * _rotl - rotates the stack to the left; the top node
+ * becomes the last node, and the second top becomes top
+ * @stack: pointer to head/top of linked list/stack
+ * @line_number: see _push for reference (unused argument)
+ * Return: nothing
+ */
+void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+	stack_t *temp, *curr, *new_head, *new_last;
+	int count = 0;
+
+	temp = *stack;
+	curr = *stack;
+	new_last = *stack;
+	new_head = (*stack)->next;
+
+	while (temp)
+	{
+		count++;
+		temp = temp->next;
+	}
+	while (curr->next)
+		curr = curr->next;
+	curr->next = new_last;
+	new_last->next = NULL;
+	new_last->prev = curr;
+	*stack = new_head;
+}
