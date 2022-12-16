@@ -40,6 +40,7 @@ void _pstr(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	if (!stack || !(*stack))
 	{
 		dprintf(STDOUT_FILENO, "\n");
+		return;
 	}
 	temp = *stack;
 
