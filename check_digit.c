@@ -8,9 +8,9 @@
  */
 void check_valid_digit(char **tokens, stack_t **stack)
 {
-	int idx = 0;
+	int idx;
 
-	if (!(tokens[1][idx]))
+	if (!(tokens[1]))
 	{
 		dprintf(STDERR_FILENO, "L%u: usage: push integer\n",
 				line_number);
@@ -19,7 +19,7 @@ void check_valid_digit(char **tokens, stack_t **stack)
 		free(tokens);
 		exit(EXIT_FAILURE);
 	}
-	for ( ; tokens[1][idx]; idx++)
+	for (idx = 0; tokens[1][idx]; idx++)
 	{
 		if (tokens[1][idx] == '-' && idx == 0)
 			continue;
