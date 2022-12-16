@@ -88,7 +88,7 @@ void _rotl(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 	curr->next = new_last; /* set last-node next to top of stack */
 	new_last->next = NULL; /* set top-node next to NULL */
 	new_last->prev = curr; /* set top-node prev to last node */
-	new_head->prev = NULL; 
+	new_head->prev = NULL;
 	*stack = new_head; /* last is now first */
 }
 /**

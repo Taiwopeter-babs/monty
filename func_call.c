@@ -35,12 +35,12 @@ void func_call(char **tokens, stack_t **stack)
 			break;
 		}
 	}
-	if (func[idx].opcode == NULL)
+	if (!func[idx].opcode)
 	{
 		dprintf(STDERR_FILENO,
 				"L%u: unknown instruction %s\n",
 				line_number, tokens[0]);
 		exit(EXIT_FAILURE);
 	}
-	
+
 }
